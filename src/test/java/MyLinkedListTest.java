@@ -57,5 +57,20 @@ public class MyLinkedListTest {
         boolean result = linkedList.head.equals(firstNode) && linkedList.head.getNext().equals(secondNode) && linkedList.tail.equals(thirdNode);
         Assert.assertTrue(result);
     }
+    //UC5 delete first node of linked list
+    @Test
+    public void givenThreeNode_shouldDeleteFirstNode() {
+        MyLinkedList<Integer> firstNode = new MyLinkedList<>(56);
+        MyLinkedList<Integer> secondNode = new MyLinkedList<>(30);
+        MyLinkedList<Integer> thirdNode = new MyLinkedList<>(70);
+        LinkedListUtils linkedList = new LinkedListUtils();
+        linkedList.append(firstNode);
+        linkedList.append(secondNode);
+        linkedList.append(thirdNode);
+        linkedList.pop();
+        boolean result = linkedList.head.equals(secondNode) && linkedList.head.getNext().equals(thirdNode)
+                && linkedList.tail.equals(thirdNode);
+        Assert.assertTrue(result);
+    }
 }
 
