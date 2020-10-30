@@ -119,6 +119,24 @@ public class MyLinkedListTest {
         boolean result = linkedList.head.equals(firstNode) && linkedList.head.getNext().equals(secondNode) && linkedList.head.getNext().getNext().equals(newNode) && linkedList.tail.equals(thirdNode);
         Assert.assertTrue(result);
     }
+    // UC9 find the node delete it and print the size of final linked list
+    @Test
+    public void givenFourNodes_findANode_deleteIt_shouldReturnSizeOfLinkedList() {
+        LinkedListUtils<Integer> linkedList = new LinkedListUtils<>();
+        MyLinkedList<Integer> firstNode = new MyLinkedList<>(56);
+        MyLinkedList<Integer> secondNode = new MyLinkedList<>(30);
+        MyLinkedList<Integer> thirdNode = new MyLinkedList<>(40);
+        MyLinkedList<Integer> fourthNode = new MyLinkedList<>(70);
+        linkedList.append(firstNode);
+        linkedList.append(secondNode);
+        linkedList.append(thirdNode);
+        linkedList.append(fourthNode);
+
+        INode<Integer> nodeFound = linkedList.findNode(40);
+        linkedList.deleteGivenNode(nodeFound);
+        int size = linkedList.getSize();
+        Assert.assertEquals(size, 3);
+    }
 
 }
 

@@ -25,7 +25,7 @@ public class MyLinkedList<K> implements INode<K>{
     }
 
     public static boolean printWelcomeMsg() {
-        System.out.println("Welcome to the find maximum using generics problem.");
+        System.out.println("Welcome Linked List");
         return true;
     }
 }
