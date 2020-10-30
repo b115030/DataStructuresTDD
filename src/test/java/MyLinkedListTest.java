@@ -103,6 +103,22 @@ public class MyLinkedListTest {
         boolean result = resultNode.equals(secondNode);
         Assert.assertTrue(result);
     }
+    // UC8 find the node with given key value and insert a new node
+    @Test
+    public void givenThreeNodes_findANode_shoudlInsertNewNode() {
+        MyLinkedList<Integer> firstNode = new MyLinkedList<>(56);
+        MyLinkedList<Integer> secondNode = new MyLinkedList<>(30);
+        MyLinkedList<Integer> thirdNode = new MyLinkedList<>(70);
+        LinkedListUtils<Integer> linkedList = new LinkedListUtils<>();
+        linkedList.append(firstNode);
+        linkedList.append(secondNode);
+        linkedList.append(thirdNode);
+        INode<Integer> nodeFound = linkedList.findNode(30);
+        MyLinkedList<Integer> newNode = new MyLinkedList<>(40);
+        linkedList.insert(nodeFound, newNode);
+        boolean result = linkedList.head.equals(firstNode) && linkedList.head.getNext().equals(secondNode) && linkedList.head.getNext().getNext().equals(newNode) && linkedList.tail.equals(thirdNode);
+        Assert.assertTrue(result);
+    }
 
 }
 
