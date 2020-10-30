@@ -137,6 +137,21 @@ public class MyLinkedListTest {
         int size = linkedList.getSize();
         Assert.assertEquals(size, 3);
     }
+    // UC10 make a sorted linked list
+    @Test
+    public void givenFourNodes_shouldAddNodeInAscendingOrder() {
+        LinkedListUtils<Integer> linkedList = new LinkedListUtils<>();
+        MyLinkedList<Integer> firstNode = new MyLinkedList<>(56);
+        MyLinkedList<Integer> secondNode = new MyLinkedList<>(30);
+        MyLinkedList<Integer> thirdNode = new MyLinkedList<>(40);
+        MyLinkedList<Integer> fourthNode = new MyLinkedList<>(70);
+        linkedList.addInAscendingOrder(firstNode);
+        linkedList.addInAscendingOrder(secondNode);
+        linkedList.addInAscendingOrder(thirdNode);
+        linkedList.addInAscendingOrder(fourthNode);
 
+        boolean result = linkedList.head.equals(secondNode) && linkedList.head.getNext().equals(thirdNode) && linkedList.head.getNext().getNext().equals(firstNode) && linkedList.tail.equals(fourthNode);
+        Assert.assertTrue(result);
+    }
 }
 

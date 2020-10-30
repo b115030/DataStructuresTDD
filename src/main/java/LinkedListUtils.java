@@ -1,4 +1,4 @@
-public class LinkedListUtils<K> {
+public class LinkedListUtils<K extends Comparable<K>> {
     public INode<K> head;
     public INode<K> tail;
     private int linkedListSize;
@@ -102,6 +102,29 @@ public class LinkedListUtils<K> {
         }
         System.out.println("No such node");
         return null;
+    }
+    // add in ascending order (UC10- sorted linked list)
+    public void addInAscendingOrder(INode<K> newNode) {
+        System.out.println(newNode.getKey());
+        if (this.head == null) {
+            this.head = newNode;
+        } else if (this.head.getKey().compareTo(newNode.getKey()) > 0) {
+            newNode.setNext(head);
+            this.head = newNode;
+        } else {
+            INode<K> tempNode = this.head;
+            while (tempNode.getNext() != null && tempNode.getNext().getKey().compareTo(newNode.getKey()) < 0) {
+                tempNode = tempNode.getNext();
+            }
+            newNode.setNext(tempNode.getNext());
+            tempNode.setNext(newNode);
+        }
+        System.out.println("after inserting in ascending order");
+        printLinkedList();
+        INode<K> tempNode = this.head;
+        while (tempNode.getNext() != null)
+            tempNode = tempNode.getNext();
+        this.tail = tempNode;
     }
 
     // print the linked list
