@@ -12,4 +12,7 @@ public class MyQueue<K extends Comparable<K>> {
     public INode<K> peek() {
         return linkedList.head;
     }
+    public void dequeue() {
+        linkedList.pop();
+    }
 }

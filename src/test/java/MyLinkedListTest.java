@@ -195,5 +195,19 @@ public class MyLinkedListTest {
         INode<Integer> peek = queue.peek();
         Assert.assertEquals(firstNode, peek);
     }
+    //UC3 create a queue and enqueue elements
+    @Test
+    public void givenThreeNumbersAddedInQueue_shouldDeleteFirstAddedNode() {
+        MyLinkedList<Integer> firstNode = new MyLinkedList<>(56);
+        MyLinkedList<Integer> secondNode = new MyLinkedList<>(30);
+        MyLinkedList<Integer> thirdNode = new MyLinkedList<>(70);
+        MyQueue<Integer> queue = new MyQueue<Integer>();
+        queue.enqueue(firstNode);
+        queue.enqueue(secondNode);
+        queue.enqueue(thirdNode);
+        queue.dequeue();
+        INode<Integer> peek = queue.peek();
+        Assert.assertEquals(secondNode, peek);
+    }
 }
 
