@@ -72,5 +72,20 @@ public class MyLinkedListTest {
                 && linkedList.tail.equals(thirdNode);
         Assert.assertTrue(result);
     }
+    // UC6 delete last node of linked list
+    @Test
+    public void givenThreeNode_shouldDeleteLastNode() {
+        MyLinkedList<Integer> firstNode = new MyLinkedList<>(56);
+        MyLinkedList<Integer> secondNode = new MyLinkedList<>(30);
+        MyLinkedList<Integer> thirdNode = new MyLinkedList<>(70);
+        LinkedListUtils linkedList = new LinkedListUtils();
+        linkedList.append(firstNode);
+        linkedList.append(secondNode);
+        linkedList.append(thirdNode);
+        linkedList.popLastNode();
+        boolean result = linkedList.head.equals(firstNode) && linkedList.head.getNext().equals(secondNode)
+                && linkedList.tail.equals(secondNode);
+        Assert.assertTrue(result);
+    }
 }
 

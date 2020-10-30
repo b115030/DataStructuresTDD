@@ -45,4 +45,17 @@ public class LinkedListUtils {
             this.head = tempNode.getNext();
         }
     }
+    // delete last node
+    public void popLastNode() {
+        if (this.head == null && this.tail == null) {
+            System.out.println("Empty linked list");
+        } else {
+            INode tempNode = this.head;
+            while (tempNode.getNext() !=  this.tail) {
+                tempNode = tempNode.getNext();
+            }
+            tempNode.setNext(null);
+            this.tail = tempNode;
+        }
+    }
 }
