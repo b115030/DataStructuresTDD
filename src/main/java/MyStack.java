@@ -1,4 +1,4 @@
-public class MyStack {
+public class MyStack<K extends Comparable<K>> {
     private final LinkedListUtils linkedList;
 
     public MyStack() {
@@ -11,6 +11,18 @@ public class MyStack {
 
     public INode peek() {
         return linkedList.head;
+    }
+    public void pop() {
+        linkedList.pop();
+        System.out.println("after stack pop");
+        linkedList.printLinkedList();
+    }
+
+    public boolean isStackEmpty() {
+        if (linkedList.getSize() >0) {
+            return false;
+        }
+        return true;
     }
 
 }

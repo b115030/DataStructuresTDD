@@ -166,5 +166,21 @@ public class MyLinkedListTest {
         INode peek = stack.peek();
         Assert.assertEquals(myThirdNode, peek);
     }
+    // UC2 pop an element stack
+    @Test
+    public void givenThreeNumbersAddedInStack_shouldDeleteLastAddedNode() {
+        MyLinkedList<Integer> thirdNode = new MyLinkedList<>(56);
+        MyLinkedList<Integer> secondNode = new MyLinkedList<>(30);
+        MyLinkedList<Integer> firstNode = new MyLinkedList<>(70);
+        MyStack<Integer> stack = new MyStack<Integer>();
+        stack.push(firstNode);
+        stack.push(secondNode);
+        stack.push(thirdNode);
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        boolean isEmpty = stack.isStackEmpty();
+        Assert.assertEquals(true, isEmpty);
+    }
 }
 
