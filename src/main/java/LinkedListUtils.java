@@ -1,4 +1,4 @@
-public class LinkedListUtils {
+public class LinkedListUtils<K> {
     public INode head;
     public INode tail;
 
@@ -57,5 +57,17 @@ public class LinkedListUtils {
             tempNode.setNext(null);
             this.tail = tempNode;
         }
+    }
+    // search linked list to find an element
+    public INode<K> findNode(K key) {
+        INode<K> tempNode = this.head;
+        while (tempNode != null) {
+            if (tempNode.getKey() == key) {
+                return tempNode;
+            }
+            tempNode = tempNode.getNext();
+        }
+        System.out.println("No such node");
+        return null;
     }
 }

@@ -19,6 +19,7 @@ public class MyLinkedListTest {
         boolean result = myFirstNode.getNext().equals(mySecondNode) && mySecondNode.getNext().equals(myThirdNode);
         Assert.assertTrue(result);
     }
+
     // UC2 test cases to add elements to Linked list
     @Test
     public void given3elementsWhenLinkedShouldBeAddedToTop() {
@@ -32,6 +33,7 @@ public class MyLinkedListTest {
         boolean result = linkedList.head.equals(thirdNode) && linkedList.head.getNext().equals(secondNode) && linkedList.tail.equals(firstNode);
         Assert.assertTrue(result);
     }
+
     @Test
     public void givenThreeElements_whenLinked_shouldBeAddedAtEnd() {
         MyLinkedList<Integer> firstNode = new MyLinkedList<>(56);
@@ -44,6 +46,7 @@ public class MyLinkedListTest {
         boolean result = linkedList.head.equals(firstNode) && linkedList.head.getNext().equals(secondNode) && linkedList.tail.equals(thirdNode);
         Assert.assertTrue(result);
     }
+
     // UC4 insert a node between two nodes
     @Test
     public void givenTwoNodes_shouldInsertThirdNodeBetweenThem() {
@@ -57,6 +60,7 @@ public class MyLinkedListTest {
         boolean result = linkedList.head.equals(firstNode) && linkedList.head.getNext().equals(secondNode) && linkedList.tail.equals(thirdNode);
         Assert.assertTrue(result);
     }
+
     //UC5 delete first node of linked list
     @Test
     public void givenThreeNode_shouldDeleteFirstNode() {
@@ -68,10 +72,10 @@ public class MyLinkedListTest {
         linkedList.append(secondNode);
         linkedList.append(thirdNode);
         linkedList.pop();
-        boolean result = linkedList.head.equals(secondNode) && linkedList.head.getNext().equals(thirdNode)
-                && linkedList.tail.equals(thirdNode);
+        boolean result = linkedList.head.equals(secondNode) && linkedList.head.getNext().equals(thirdNode) && linkedList.tail.equals(thirdNode);
         Assert.assertTrue(result);
     }
+
     // UC6 delete last node of linked list
     @Test
     public void givenThreeNode_shouldDeleteLastNode() {
@@ -83,9 +87,22 @@ public class MyLinkedListTest {
         linkedList.append(secondNode);
         linkedList.append(thirdNode);
         linkedList.popLastNode();
-        boolean result = linkedList.head.equals(firstNode) && linkedList.head.getNext().equals(secondNode)
-                && linkedList.tail.equals(secondNode);
+        boolean result = linkedList.head.equals(firstNode) && linkedList.head.getNext().equals(secondNode) && linkedList.tail.equals(secondNode);
         Assert.assertTrue(result);
     }
+    @Test
+    public void givenKeyValue_shouldReturnNodeWithKey() {
+        MyLinkedList<Integer> firstNode = new MyLinkedList<>(56);
+        MyLinkedList<Integer> secondNode = new MyLinkedList<>(30);
+        MyLinkedList<Integer> thirdNode = new MyLinkedList<>(70);
+        LinkedListUtils<Integer> linkedList = new LinkedListUtils<>();
+        linkedList.append(firstNode);
+        linkedList.append(secondNode);
+        linkedList.append(thirdNode);
+        INode<Integer> resultNode = linkedList.findNode(30);
+        boolean result = resultNode.equals(secondNode);
+        Assert.assertTrue(result);
+    }
+
 }
 
