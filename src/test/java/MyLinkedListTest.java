@@ -153,5 +153,18 @@ public class MyLinkedListTest {
         boolean result = linkedList.head.equals(secondNode) && linkedList.head.getNext().equals(thirdNode) && linkedList.head.getNext().getNext().equals(firstNode) && linkedList.tail.equals(fourthNode);
         Assert.assertTrue(result);
     }
+    //UC1 create stack
+    @Test
+    public void given3NumbersAddedInStackShouldHaveLastAddedNode () {
+        MyLinkedList<Integer> myThirdNode = new MyLinkedList<>(56);
+        MyLinkedList<Integer> mySecondNode = new MyLinkedList<>(30);
+        MyLinkedList<Integer> myFirstNode = new MyLinkedList<>(70);
+        MyStack stack = new MyStack();
+        stack.push(myFirstNode);
+        stack.push(mySecondNode);
+        stack.push(myThirdNode);
+        INode peek = stack.peek();
+        Assert.assertEquals(myThirdNode, peek);
+    }
 }
 
