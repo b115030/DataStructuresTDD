@@ -29,8 +29,7 @@ public class MyLinkedListTest {
         linkedList.add(firstNode);
         linkedList.add(secondNode);
         linkedList.add(thirdNode);
-        boolean result = linkedList.head.equals(thirdNode) && linkedList.head.getNext().equals(secondNode)
-                && linkedList.tail.equals(firstNode);
+        boolean result = linkedList.head.equals(thirdNode) && linkedList.head.getNext().equals(secondNode) && linkedList.tail.equals(firstNode);
         Assert.assertTrue(result);
     }
     @Test
@@ -42,8 +41,20 @@ public class MyLinkedListTest {
         linkedList.append(firstNode);
         linkedList.append(secondNode);
         linkedList.append(thirdNode);
-        boolean result = linkedList.head.equals(firstNode) && linkedList.head.getNext().equals(secondNode)
-                && linkedList.tail.equals(thirdNode);
+        boolean result = linkedList.head.equals(firstNode) && linkedList.head.getNext().equals(secondNode) && linkedList.tail.equals(thirdNode);
+        Assert.assertTrue(result);
+    }
+    // UC4 insert a node between two nodes
+    @Test
+    public void givenTwoNodes_shouldInsertThirdNodeBetweenThem() {
+        MyLinkedList<Integer> firstNode = new MyLinkedList<>(56);
+        MyLinkedList<Integer> secondNode = new MyLinkedList<>(30);
+        MyLinkedList<Integer> thirdNode = new MyLinkedList<>(70);
+        LinkedListUtils linkedList = new LinkedListUtils();
+        linkedList.append(firstNode);
+        linkedList.append(thirdNode);
+        linkedList.insert(firstNode, secondNode);
+        boolean result = linkedList.head.equals(firstNode) && linkedList.head.getNext().equals(secondNode) && linkedList.tail.equals(thirdNode);
         Assert.assertTrue(result);
     }
 }

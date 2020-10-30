@@ -30,4 +30,10 @@ public class LinkedListUtils {
             this.tail = newNode;
         }
     }
+    // Insert nodes between nodes
+    public void insert(INode firstNode, INode newNode) {
+        INode tempNode = firstNode.getNext();
+        firstNode.setNext(newNode);
+        newNode.setNext(tempNode);
+    }
 }
