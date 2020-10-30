@@ -182,5 +182,18 @@ public class MyLinkedListTest {
         boolean isEmpty = stack.isStackEmpty();
         Assert.assertEquals(true, isEmpty);
     }
+    //UC3 create a queue and enqueue elements
+    @Test
+    public void givenThreeNumbers_enQueueThem_shouldBeAppened() {
+        MyLinkedList<Integer> firstNode = new MyLinkedList<>(56);
+        MyLinkedList<Integer> secondNode = new MyLinkedList<>(30);
+        MyLinkedList<Integer> thirdNode = new MyLinkedList<>(70);
+        MyQueue<Integer> queue = new MyQueue<Integer>();
+        queue.enqueue(firstNode);
+        queue.enqueue(secondNode);
+        queue.enqueue(thirdNode);;
+        INode<Integer> peek = queue.peek();
+        Assert.assertEquals(firstNode, peek);
+    }
 }
 
