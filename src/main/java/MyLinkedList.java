@@ -1,8 +1,7 @@
-public class MyLinkedList<K> {
+public class MyLinkedList<K> implements INode<K>{
     private K key;
-    private MyLinkedList next;
+    private INode<K> next;
 
-    // constructor
     public MyLinkedList(K key) {
         this.key = key;
         this.next = null;
@@ -16,11 +15,12 @@ public class MyLinkedList<K> {
         this.key = key;
     }
 
-    public MyLinkedList getNext() {
+    public INode<K> getNext() {
         return next;
     }
 
-    public void setNext(MyLinkedList next) {
+    @Override
+    public void setNext(INode<K> next) {
         this.next = next;
     }
 

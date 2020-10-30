@@ -19,5 +19,19 @@ public class MyLinkedListTest {
         boolean result = myFirstNode.getNext().equals(mySecondNode) && mySecondNode.getNext().equals(myThirdNode);
         Assert.assertTrue(result);
     }
+    // UC2 test cases to add elements to Linked list
+    @Test
+    public void given3elementsWhenLinkedShouldBeAddedToTop() {
+        MyLinkedList<Integer> thirdNode = new MyLinkedList<>(56);
+        MyLinkedList<Integer> secondNode = new MyLinkedList<>(30);
+        MyLinkedList<Integer> firstNode = new MyLinkedList<>(70);
+        HeadTailPlacement linkedList = new HeadTailPlacement();
+        linkedList.add(firstNode);
+        linkedList.add(secondNode);
+        linkedList.add(thirdNode);
+        boolean result = linkedList.head.equals(thirdNode) && linkedList.head.getNext().equals(secondNode)
+                && linkedList.tail.equals(firstNode);
+        Assert.assertTrue(result);
+    }
 }
 
