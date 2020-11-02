@@ -20,4 +20,23 @@ public class HashTableLinkedListTest {
         System.out.println(myLinkedHashMap);
         Assert.assertEquals(3, frequency);
     }
+    // UC3 Remove a word in a large paragraph (Hash Tables)
+    @Test
+    public void givenPara_shouldRemoveAGivenWord() {
+        String sentence = "Paranoids are not paranoid because they are paranoid but "
+                + "because they keep putting themselves deliberately into paranoid avoidable situations";
+        HashTableLinkedList<String, Integer> myLinkedHashMap = new HashTableLinkedList<>();
+        String[] words = sentence.toLowerCase().split(" ");
+        for (String word : words) {
+            Integer value = myLinkedHashMap.get(word);
+            if (value == null)
+                value = 1;
+            else
+                value = value + 1;
+            myLinkedHashMap.add(word, value);
+        }
+        String deletedWord = myLinkedHashMap.deleteWord("avoidable");
+        System.out.println(myLinkedHashMap);
+        Assert.assertEquals("avoidable", deletedWord);
+    }
 }

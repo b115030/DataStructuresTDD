@@ -85,6 +85,17 @@ public class LinkedListUtils<K extends Comparable<K>> {
         printLinkedList();
         linkedListSize--;
     }
+    // delete node with given key
+    public INode<K> deleteGivenKey(K key) {
+        INode<K> tempNode = findNode(key);
+        if (tempNode == null)
+            return null;
+        else {
+            INode<K> deletedNode = tempNode;
+            deleteGivenNode(tempNode);
+            return deletedNode;
+        }
+    }
 
     //get size of linkedList
     public int getSize() {

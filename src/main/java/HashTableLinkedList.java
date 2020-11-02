@@ -44,6 +44,19 @@ public class HashTableLinkedList<K extends Comparable<K>, V> {
             myMapNode.setValue(value);
         }
     }
+    // to delete a given word
+    public K deleteWord(K key) {
+        int index = this.getBucketIndex(key);
+        LinkedListUtils<K> myLinkedList = this.myBucketArray.get(index);
+        if (myLinkedList == null) {
+            System.out.println("word not present");
+            return null;
+        }
+        MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) myLinkedList.deleteGivenKey(key);
+        return (myMapNode == null) ? null : myMapNode.getKey();
+    }
+
+
 
     @Override
     public String toString() {
