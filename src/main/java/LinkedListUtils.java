@@ -93,9 +93,12 @@ public class LinkedListUtils<K extends Comparable<K>> {
 
     // search linked list to find an element
     public INode<K> findNode(K key) {
+        if (head == null) {
+            return null;
+        }
         INode<K> tempNode = this.head;
         while (tempNode != null) {
-            if (tempNode.getKey() == key) {
+            if (tempNode.getKey().equals(key)) {
                 return tempNode;
             }
             tempNode = tempNode.getNext();
@@ -104,7 +107,7 @@ public class LinkedListUtils<K extends Comparable<K>> {
         return null;
     }
     // add in ascending order (UC10- sorted linked list)
-    public void addInAscendingOrder(INode<K> newNode) {
+    public void addInOrder(INode<K> newNode) {
         System.out.println(newNode.getKey());
         if (this.head == null) {
             this.head = newNode;
